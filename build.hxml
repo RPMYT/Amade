@@ -1,0 +1,5 @@
+-cp amade
+-D analyzer-optimize
+-L cctweaked
+-main amade.system.boot.AmadeSystemFSLV
+-lua Amade.lua
