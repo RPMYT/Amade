@@ -31,16 +31,6 @@ class AmadeSystemFSLV {
 	public static function main() {
 		_G.raw = Table.create();
 
-		Lua.rawset(CobaltPackage.preload, "lua-utf8", () -> {
-			return _G.utf8;
-		});
-
-		_G.require = Lua.require;
-
-		var metatable = Table.create();
-		metatable.__index = NativeStringTools;
-		Lua.setmetatable(_G.utf8, metatable);
-
 		Lua.rawset(_G.raw, "printError", Lua.load(NativeStringTools.dump(ComputerCraft.printError)).func);
 		Lua.rawset(_G.raw, "os.run", Lua.load(NativeStringTools.dump(OS.run)).func);
 
@@ -81,11 +71,11 @@ class AmadeSystemFSLV {
 				}
 			}
 
+			// No VSCode, the package should not be `system.boot`
 			AmadeSystemSSLV.RunSecondStage();
 		}
 
 		// we need a way to crash the BIOS automatically on CraftOS-PC
-
 		if (!StringTools.contains(_G._HOST, "CraftOS-")) {
 			Sys.println("Not running on CraftOS-PC, crashing Lua VM automatically via OOM.");
 			NativeStringTools.rep("AMADE FSLV", 2^31-1);

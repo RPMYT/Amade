@@ -201,6 +201,7 @@ __lua_lib_luautf8_Utf8 = _G.require("lua-utf8")
 local Math = _hx_e()
 local String = _hx_e()
 local Std = _hx_e()
+__amade_api_AmadeError = _hx_e()
 __amade_data_AmadeResourceData = _hx_e()
 __amade_system_boot_AmadeSystemFSLV = _hx_e()
 __amade_system_boot_AmadeSystemSSLV = _hx_e()
@@ -731,6 +732,87 @@ Std.int = function(x)
   end;
 end
 
+__amade_api_AmadeError.EPERM = _hx_tab_array({[0]="EPERM",0,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ESRCH = _hx_tab_array({[0]="ESRCH",1,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EINVAL = _hx_tab_array({[0]="EINVAL",2,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ENOTTY = _hx_tab_array({[0]="ENOTTY",3,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ENOSYS = _hx_tab_array({[0]="ENOSYS",4,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ENODATA = _hx_tab_array({[0]="ENODATA",5,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ETIME = _hx_tab_array({[0]="ETIME",6,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EOWNERDEAD = _hx_tab_array({[0]="EOWNERDEAD",7,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ENOTSUP = _hx_tab_array({[0]="ENOTSUP",8,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EIO = _hx_tab_array({[0]="EIO",9,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ENODEV = _hx_tab_array({[0]="ENODEV",10,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EPIPE = _hx_tab_array({[0]="EPIPE",11,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ENOTBLK = _hx_tab_array({[0]="ENOTBLK",12,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EFBIG = _hx_tab_array({[0]="EFBIG",13,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ENOSPC = _hx_tab_array({[0]="ENOSPC",14,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EACCES = _hx_tab_array({[0]="EACCES",15,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ENOTEMPTY = _hx_tab_array({[0]="ENOTEMPTY",16,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ENOTDIR = _hx_tab_array({[0]="ENOTDIR",17,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EISDIR = _hx_tab_array({[0]="EISDIR",18,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ENOENT = _hx_tab_array({[0]="ENOENT",19,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EEXIST = _hx_tab_array({[0]="EEXIST",20,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EROFS = _hx_tab_array({[0]="EROFS",21,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ECOMM = _hx_tab_array({[0]="ECOMM",22,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EMSGSIZE = _hx_tab_array({[0]="EMSGSIZE",23,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EOPNOTSUPP = _hx_tab_array({[0]="EOPNOTSUPP",24,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EADDRINUSE = _hx_tab_array({[0]="EADDRINUSE",25,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EADDRNOTAVAIL = _hx_tab_array({[0]="EADDRNOTAVAIL",26,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ENETDOWN = _hx_tab_array({[0]="ENETDOWN",27,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ENETUNREACH = _hx_tab_array({[0]="ENETUNREACH",28,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ECONNABORTED = _hx_tab_array({[0]="ECONNABORTED",29,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ECONNRESET = _hx_tab_array({[0]="ECONNRESET",30,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EISCONN = _hx_tab_array({[0]="EISCONN",31,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ENOTCONN = _hx_tab_array({[0]="ENOTCONN",32,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ESHUTDOWN = _hx_tab_array({[0]="ESHUTDOWN",33,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ETIMEDOUT = _hx_tab_array({[0]="ETIMEDOUT",34,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.ECONNREFUSED = _hx_tab_array({[0]="ECONNREFUSED",35,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EHOSTDOWN = _hx_tab_array({[0]="EHOSTDOWN",36,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EHOSTUNREACH = _hx_tab_array({[0]="EHOSTUNREACH",37,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EALREADY = _hx_tab_array({[0]="EALREADY",38,__enum__ = __amade_api_AmadeError},2)
+
+__amade_api_AmadeError.EUNKNOWN = _hx_tab_array({[0]="EUNKNOWN",39,__enum__ = __amade_api_AmadeError},2)
+
+
 __amade_data_AmadeResourceData.new = {}
 
 __amade_system_boot_AmadeSystemFSLV.new = {}
@@ -818,57 +900,37 @@ __amade_system_boot_AmadeSystemSSLV.RunSecondStage = function()
   os.shutdown();
 end
 
-__amade_system_shell_AmadeShell.new = {}
+__amade_system_shell_AmadeShell.new = function(paths) 
+  local self = _hx_new(__amade_system_shell_AmadeShell.prototype)
+  __amade_system_shell_AmadeShell.super(self,paths)
+  return self
+end
+__amade_system_shell_AmadeShell.super = function(self,paths) 
+  self.ShellRunning = false;
+  self.BuiltinCMDs = ({});
+  self.SearchPaths = ({});
+  self.SearchPaths[1] = "/Library/Programs/?.apb";
+  self.SearchPaths[2] = "?.lua";
+  if (paths.length >= 1) then 
+    local index = 2;
+    local _g = 0;
+    while (_g < paths.length) do 
+      local path = paths[_g];
+      _g = _g + 1;
+      self.SearchPaths[index] = path;
+      index = index + 1;
+    end;
+  end;
+  self.BuiltinCMDs[1] = "cd";
+  self.BuiltinCMDs[2] = "exit";
+  self.BuiltinCMDs[3] = "ls";
+end
 __amade_system_shell_AmadeShell.run = function() 
-  local length = nil;
-  local tab = __lua_PairTools.copy(__amade_system_shell_AmadeShell.SearchPaths);
-  local length = length;
-  local tmp;
-  if (length == nil) then 
-    length = _hx_table.maxn(tab);
-    if (length > 0) then 
-      local head = tab[1];
-      _G.table.remove(tab, 1);
-      tab[0] = head;
-      tmp = _hx_tab_array(tab, length);
-    else
-      tmp = _hx_tab_array({}, 0);
-    end;
-  else
-    tmp = _hx_tab_array(tab, length);
-  end;
-  if (tmp.length == 0) then 
-    __amade_system_shell_AmadeShell.SearchPaths[1] = "/Library/Programs/?.apb";
-  end;
-  local length = nil;
-  local tab = __lua_PairTools.copy(__amade_system_shell_AmadeShell.BuiltinCMDs);
-  local length = length;
-  local tmp;
-  if (length == nil) then 
-    length = _hx_table.maxn(tab);
-    if (length > 0) then 
-      local head = tab[1];
-      _G.table.remove(tab, 1);
-      tab[0] = head;
-      tmp = _hx_tab_array(tab, length);
-    else
-      tmp = _hx_tab_array({}, 0);
-    end;
-  else
-    tmp = _hx_tab_array(tab, length);
-  end;
-  if (tmp.length == 0) then 
-    __amade_system_shell_AmadeShell.BuiltinCMDs[1] = "cd";
-    __amade_system_shell_AmadeShell.BuiltinCMDs[2] = "exit";
-    __amade_system_shell_AmadeShell.BuiltinCMDs[3] = "ls";
-  end;
-  local currentDir = "/";
-  local running = true;
-  local _hx_continue_1 = false;
-  while (true) do repeat 
+  local shell = __amade_system_shell_AmadeShell.new();
+  while (true) do 
     io.write("> ");
-    local command = _hx_tab_array({[0]=io.read()}, 1);
-    local _this = _G.string.gsub(command[0], ".*:%s", "");
+    local command = io.read();
+    local _this = _G.string.gsub(command, ".*:%s", "");
     local idx = 1;
     local ret = _hx_tab_array({}, 0);
     while (idx ~= nil) do 
@@ -891,9 +953,9 @@ __amade_system_shell_AmadeShell.run = function()
       end;
     end;
     local params = ret;
-    command[0] = _G.string.gsub(command[0], ":%s.*", "");
-    if ((params.length == 1) and (params[0] == command[0])) then 
-      params:remove(command[0]);
+    command = _G.string.gsub(command, ":%s.*", "");
+    if ((params.length == 1) and (params[0] == command)) then 
+      params:remove(command);
     end;
     local options = ({});
     local _g = 0;
@@ -918,8 +980,11 @@ __amade_system_shell_AmadeShell.run = function()
         params:remove(parameter);
       end;
     end;
+    if (params[0] == command) then 
+      params:remove(command);
+    end;
     local length = nil;
-    local tab = __lua_PairTools.copy(__amade_system_shell_AmadeShell.BuiltinCMDs);
+    local tab = __lua_PairTools.copy(shell.BuiltinCMDs);
     local length = length;
     local tmp;
     if (length == nil) then 
@@ -935,108 +1000,90 @@ __amade_system_shell_AmadeShell.run = function()
     else
       tmp = _hx_tab_array(tab, length);
     end;
-    if (tmp:contains(command[0])) then 
-      _G.print(Std.string(params.length));
-      local command = command[0];
+    if (tmp:contains(command)) then 
+      local command = command;
       if (command) == "cd" then 
-        if (params.length >= 0) then 
-          if (params[1] == "") then 
-            if (not running) then 
-              _hx_continue_1 = true;break;
-            else
-              break;
-            end;
-          end;
-          currentDir = params[0];
-          if (not running) then 
-            _hx_continue_1 = true;break;
-          else
-            break;
-          end;
+        if (params.length >= 1) then 
+          shell.CurrentWorkingDirectory = params[0];
         end;
       elseif (command) == "exit" then 
-        running = false;
-        _hx_continue_1 = true;break;
+        shell.ShellRunning = false;
       elseif (command) == "ls" then 
-        local directory = currentDir;
+        local directory = shell.CurrentWorkingDirectory;
         if (params.length >= 1) then 
           directory = params[0];
         end;
         local list = _hx_tab_array({[0]=""}, 1);
-        __lua_PairTools.pairsEach(fs.list(Std.string(currentDir) .. Std.string(directory)), (function(list) 
+        __lua_PairTools.pairsEach(fs.list(Std.string(shell.CurrentWorkingDirectory) .. Std.string(directory)), (function(list) 
           do return function(index,path) 
             list[0] = Std.string(Std.string(list[0]) .. Std.string(path)) .. Std.string(" ");
           end end;
         end)(list));
-        io.write(Std.string(list[0]) .. Std.string("\n"));
-        if (not running) then 
-          _hx_continue_1 = true;break;
-        else
-          break;
-        end; end;
+        io.write(Std.string(list[0]) .. Std.string("\n")); end;
+    else
+      if (shell:execute(command, params).success == false) then 
+        io.stderr:write(Std.string(Std.string("Command not found: ") .. Std.string(command)) .. Std.string("\n"));
+      end;
     end;
-    local found = _hx_tab_array({[0]=false}, 1);
-    __lua_PairTools.pairsEach(fs.list(currentDir), (function(found,command) 
-      do return function(index,path) 
-        if (path == command[0]) then 
-          found[0] = true;
-          local handle = io.open(Std.string(currentDir) .. Std.string(path));
-          local source = "";
-          if (handle ~= nil) then 
-            source = handle:read("*a");
-          end;
-          local _hx_2_result_func, _hx_2_result_message = _G.load(source, Std.string(currentDir) .. Std.string(path));
-          if (_hx_2_result_func ~= nil) then 
-            local _hx_3_result_status, _hx_3_result_value = _G.pcall(_G.load(source));
-            if (_hx_3_result_status == false) then 
-              _G.print(_hx_3_result_value);
-            end;
-          else
-            io.stderr:write(Std.string(_hx_2_result_message) .. Std.string("\n"));
-          end;
+    if (not shell.ShellRunning) then 
+      break;
+    end;
+  end;
+end
+__amade_system_shell_AmadeShell.prototype = _hx_e();
+__amade_system_shell_AmadeShell.prototype.execute = function(self,command,params,cwd) 
+  local _gthis = self;
+  local result = ({});
+  local error = __amade_api_AmadeError.EUNKNOWN[0];
+  if ((cwd ~= nil) and (cwd ~= "")) then 
+    self.CurrentWorkingDirectory = cwd;
+  end;
+  local found = false;
+  __lua_PairTools.pairsEach(fs.list(self.CurrentWorkingDirectory), function(index,path) 
+    if (path == command) then 
+      found = true;
+      local handle = io.open(Std.string(_gthis.CurrentWorkingDirectory) .. Std.string(path));
+      local source = "";
+      if (handle ~= nil) then 
+        source = handle:read("*a");
+      end;
+      local _hx_1_result_func, _hx_1_result_message = _G.load(source, Std.string(_gthis.CurrentWorkingDirectory) .. Std.string(path));
+      if (_hx_1_result_func ~= nil) then 
+        local _hx_2_result_status, _hx_2_result_value = _G.pcall(_G.load(source));
+        if (_hx_2_result_status == false) then 
+          _G.print(_hx_2_result_value);
         end;
-      end end;
-    end)(found, command));
-    if (not found[0]) then 
-      if (fs.exists(command[0])) then 
-        found[0] = true;
-        local handle = io.open(command[0]);
-        local source = "";
-        if (handle ~= nil) then 
-          source = handle:read("*a");
-        end;
-        local _hx_4_result_func, _hx_4_result_message = _G.load(source, command[0]);
-        if (_hx_4_result_func ~= nil) then 
-          local _hx_5_returned_status, _hx_5_returned_value = _G.pcall(_G.load(source));
-          if (_hx_5_returned_status == false) then 
-            io.stderr:write(Std.string(_G.string.gsub(_G.string.gsub(_hx_5_returned_value, "string [\"", ""), "]\"", "")) .. Std.string("\n"));
-          end;
-        else
-          io.stderr:write(Std.string(_hx_4_result_message) .. Std.string("\n"));
+      else
+        io.stderr:write(Std.string(_hx_1_result_message) .. Std.string("\n"));
+      end;
+    end;
+  end);
+  if (not found) then 
+    if (fs.exists(command)) then 
+      found = true;
+      local handle = io.open(command);
+      local source = "";
+      if (handle ~= nil) then 
+        source = handle:read("*a");
+      end;
+      if (_G.load(source, command) ~= nil) then 
+        local _hx_3_returned_status, _hx_3_returned_value = _G.pcall(_G.load(source));
+        if (_hx_3_returned_status == false) then 
+          io.stderr:write(Std.string(_G.string.gsub(_G.string.gsub(_hx_3_returned_value, "string [\"", ""), "]\"", "")) .. Std.string("\n"));
         end;
       end;
     end;
-    if (not found[0]) then 
-      __lua_PairTools.pairsEach(__amade_system_shell_AmadeShell.SearchPaths, (function(command) 
-        do return function(index,path) 
-          if (fs.exists(_G.string.gsub(path, "?", command[0]))) then 
-            io.open(_G.string.gsub(path, "?", command[0]));
-          end;
-        end end;
-      end)(command));
-    end;
-    if (not found[0]) then 
-      io.stderr:write(Std.string(Std.string("Command not found: ") .. Std.string(command[0])) .. Std.string("\n"));
-    end;
-    if (not running) then 
-      _hx_continue_1 = true;break;
-    end;until true
-    if _hx_continue_1 then 
-    _hx_continue_1 = false;
-    break;
-    end;
-    
   end;
+  if (not found) then 
+    __lua_PairTools.pairsEach(self.SearchPaths, function(index,path) 
+      if (fs.exists(_G.string.gsub(path, "?", command))) then 
+        io.open(_G.string.gsub(path, "?", command));
+      end;
+    end);
+  end;
+  result.error = error;
+  result.output = ({});
+  do return result end
 end
 
 __haxe_iterators_ArrayIterator.new = function(array) 
@@ -1114,10 +1161,6 @@ local _hx_static_init = function()
 
   
   __amade_data_AmadeResourceData.Sounds = _hx_o({__fields__={System=true},System=_hx_o({__fields__={Crash=true,StartupComplete=true},Crash=_hx_o({__fields__={name=true,data=true},name="SND_CRASH",data=_hx_box_mr(_hx_table.pack(_G.string.sub(__amade_data_AmadeResourceData.System.SystemFile.data, _G.select(2, _G.string.find(__amade_data_AmadeResourceData.System.SystemFile.data, "//SND_CRASH_BEGIN\n.")), _G.string.find(__amade_data_AmadeResourceData.System.SystemFile.data, ".\n//SND_CRASH_END"))), {"match", "count"})}),StartupComplete=_hx_o({__fields__={name=true,data=true},name="SND_STARTUP",data=_hx_box_mr(_hx_table.pack(_G.string.sub(__amade_data_AmadeResourceData.System.SystemFile.data, _G.select(2, _G.string.find(__amade_data_AmadeResourceData.System.SystemFile.data, "//SND_STARTUP_BEGIN\n.")), _G.string.find(__amade_data_AmadeResourceData.System.SystemFile.data, ".\n//SND_STARTUP_END"))), {"match", "count"})})})});
-  
-  __amade_system_shell_AmadeShell.SearchPaths = ({});
-  
-  __amade_system_shell_AmadeShell.BuiltinCMDs = ({});
   
   
 end
