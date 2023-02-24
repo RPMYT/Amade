@@ -14,6 +14,7 @@ import cc.OS;
 
 @:native("_G")
 extern class _G {
+	public static var _OSVERSION: String;
 	public static var _HOST: String;
 	public static var raw: Table<String, Function>;
 	public static var utf8: Table<String, Function>;
@@ -35,6 +36,11 @@ class AmadeSystemFSLV {
 		Lua.rawset(_G.raw, "os.run", Lua.load(NativeStringTools.dump(OS.run)).func);
 
 		OS.run = null;
+
+		OS.version = function version() {
+			return _G._OSVERSION;
+		}
+
 		ComputerCraft.printError = function(message: String) {
 			Sys.println("--- LOADING THE AMADE OPERATING SYSTEM ---");
 

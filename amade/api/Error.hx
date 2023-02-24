@@ -1,6 +1,6 @@
 package amade.api;
 
-enum AmadeError {
+enum Error {
     // System Errors
 
     EPERM; // Operation not permitted

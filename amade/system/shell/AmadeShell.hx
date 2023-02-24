@@ -1,6 +1,9 @@
 package amade.system.shell;
 
-import amade.api.AmadeError;
+import haxe.Constraints.Function;
+import haxe.extern.EitherType;
+import lua.TableTools;
+import amade.api.Error;
 import lua.Table;
 import amade.system.boot.AmadeSystemFSLV._G;
 import lua.NativeStringTools;
@@ -13,13 +16,20 @@ class AmadeShell {
     public var SearchPaths: Table<Int, String> = Table.create();
     public var BuiltinCMDs: Table<Int, String> = Table.create();
 
-    public var CurrentWorkingDirectory: String;
-    public var ShellRunning: Bool = false;
+    var CurrentWorkingDirectory: String = "/";
+    var ShellRunning: Bool = true;
 
-    public function new(?paths: Array<String>) {
+    public function new(?directory: String, ?paths: Array<String>) {
         SearchPaths[1] = "/Library/Programs/?.apb";
-        SearchPaths[2] = "?.lua";
-        if (paths.length >= 1) {
+        SearchPaths[2] = "/Library/Programs/?.lua";
+        SearchPaths[3] = "?.apb";
+        SearchPaths[4] = "?.lua";
+        
+        if (directory != null) {
+            this.CurrentWorkingDirectory = directory;
+        }
+
+        if (paths != null && paths.length >= 1) {
             var index = 2;
             for (path in paths) {
                 SearchPaths[index] = path;
@@ -32,16 +42,24 @@ class AmadeShell {
         BuiltinCMDs[3] = "ls";
     }
 
+    private function load(path: String): EitherType<Error, Function> {
+        return Error.ENOSYS;
+    }
+
     public function execute(command: String, ?params: Array<String>, ?cwd: String): Table<String, Any> {
         var result: Table<String, Any> = Table.create();
 
         var success = false;
-        var error: String = AmadeError.EUNKNOWN.getName();
+        var error: String = Error.EUNKNOWN.getName();
         var output: Table<Int, String> = Table.create();
 
         // TODO: home directories
         if (cwd != null && cwd != "") {
             this.CurrentWorkingDirectory = cwd;
+        }
+
+        if (this.CurrentWorkingDirectory == null) {
+            this.CurrentWorkingDirectory = "/";
         }
 
         var found = false;
@@ -57,16 +75,7 @@ class AmadeShell {
                 }
 
                 var result = _G.load(source, this.CurrentWorkingDirectory + path);
-                if (result.func != null) {
-                    var func = Lua.load(source).func;
-                    var result = Lua.pcall(func);
-
-                    if (result.status == false) {
-                        Lua.print(result.value);
-                    }
-                } else {
-                    IO.stderr.write(result.message + "\n");
-                }
+                
             }
         });
 
@@ -96,11 +105,27 @@ class AmadeShell {
 
         if (!found) {
             PairTools.pairsEach(SearchPaths, (index, path) -> {
-                if (FileSystem.exists(NativeStringTools.gsub(path, "?", command))) {
-                    var app = NativeStringTools.gsub(path, "?", command);
-                    
-                    var handle = IO.open(app);
+                if (FileSystem.exists(NativeStringTools.gsub(NativeStringTools.gsub(path, "?", command), "<CWD>", this.CurrentWorkingDirectory))) {
+                    var app = NativeStringTools.gsub(NativeStringTools.gsub(path, "?", command), "<CWD>", this.CurrentWorkingDirectory);
+
+                    var handle = IO.open(app, OpenFileMode.Read);
                     var source = "";
+
+                    if (handle != null) {
+                        source = handle.read("*a");
+                    }
+    
+                    var result = _G.load(source, this.CurrentWorkingDirectory + path);
+                    if (result.func != null) {
+                        var func = Lua.load(source).func;
+                        var result = Lua.pcall(func);
+    
+                        if (result.status == false) {
+                            Lua.print(result.value);
+                        }
+                    } else {
+                        IO.stderr.write(result.message + "\n");
+                    }
                 }
             });
         }
@@ -159,11 +184,13 @@ class AmadeShell {
                             // TODO: relative paths
                             // TODO: check if path actually exists
                             shell.CurrentWorkingDirectory = params[0];
+                            continue;
                         }
                     }
     
                     case "exit": {
                         shell.ShellRunning = false;
+                        break;
                     }
     
                     case "ls": {
@@ -176,6 +203,7 @@ class AmadeShell {
                             list = list + path + " ";
                         });
                         IO.write(list + "\n");
+                        continue;
                     }
                 }
             } else {
@@ -183,6 +211,10 @@ class AmadeShell {
 
                 if (result.success == false) {
                     IO.stderr.write("Command not found: " + command + "\n");
+                } else if (result.output != null) {
+                    PairTools.pairsEach(result.output, (index, message) -> {
+                        IO.write(message + "\n");
+                    });
                 }
             }
         } while (shell.ShellRunning);
