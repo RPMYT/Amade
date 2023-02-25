@@ -1,8 +1,8 @@
-package amade.api.filesystem;
+package amade.api.internal.filesystem;
 
 import lua.Table;
-import amade.api.filesystem.FilePermission.Scope;
-import amade.api.filesystem.FilePermission.Permission;
+import amade.api.internal.filesystem.FilePermission.Scope;
+import amade.api.internal.filesystem.FilePermission.Permission;
 
 class File {
     public final path: String;

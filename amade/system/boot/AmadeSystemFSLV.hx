@@ -1,6 +1,5 @@
 package amade.system.boot;
 
-import amade.data.AmadeResourceData;
 import amade.api.audio.DFPWM;
 import cc.Peripheral;
 import cc.FileSystem;
@@ -61,12 +60,12 @@ class AmadeSystemFSLV {
 						Lua.print(result.value);
 					}
 				} else {
-					if (Peripheral.find("speaker")) {
-						var speaker = Peripheral.find("speaker");
+					// if (Peripheral.find("speaker")) {
+					// 	var speaker = Peripheral.find("speaker");
 
-						var decoder = DFPWM.make_decoder();
-						speaker.playAudio(decoder(AmadeResourceData.Sounds.System.Crash.data.match));
-					}
+					// 	var decoder = DFPWM.make_decoder();
+					// 	speaker.playAudio(decoder(AmadeResourceData.Sounds.System.Crash.data.match));
+					// }
 
 					IO.stderr.write("Failed to load Amade :(");
 					IO.stderr.write("Reason: " + result.message);

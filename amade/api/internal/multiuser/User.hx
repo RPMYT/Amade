@@ -1,4 +1,4 @@
-package amade.api.multiuser;
+package amade.api.internal.multiuser;
 
 class User {
     public static final RootUser = new User("root");

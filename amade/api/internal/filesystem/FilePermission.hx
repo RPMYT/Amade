@@ -1,11 +1,11 @@
-package amade.api.filesystem;
+package amade.api.internal.filesystem;
 
-import amade.api.multiuser.Group;
-import amade.api.multiuser.User;
+import amade.api.internal.multiuser.Group;
+import amade.api.internal.multiuser.User;
 import sys.io.File;
 import haxe.extern.EitherType;
-import amade.api.Error;
-import amade.api.filesystem.FileHandle;
+import amade.util.Error;
+import amade.api.internal.filesystem.FileHandle;
 import lua.Table;
 
 enum Permission {
@@ -27,10 +27,10 @@ class PermissionUtil {
 
     public static function init(): EitherType<Error, Void> {
         if (initialized) {
-            return Error.EALREADY;
+            return Error.EALREADY("PermissionUtil already initialized!!");
         }
 
-        PermissionDatabaseHandle = new FileHandle("/System/Permissions.txt", Mode.READWRITE, false);
+        PermissionDatabaseHandle = new FileHandle("/System/Permissions.txt", IOMode.READWRITE, false);
 
         return null;
     }

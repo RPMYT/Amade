@@ -1,0 +1,27 @@
+I was thinking you could achieve process isolation by setting _ENV to an empty table with index and newindex metamethods
+rawget/rawset would bypass your metamethods
+so just overwrite those 😁
+make em still work
+and bypass user metamethods
+but not ones on kernel objects
+
+- Exo
+
+and
+make all of your system calls yield the process to the scheduler
+and
+provide a bufferable system call API
+or at least file I/O api
+so a program can set up some shit it wants to do
+and yield once to the kernel
+
+- Exo
+
+does CC have the
+debug library?
+available
+epic
+you can yield to the scheduler in a call hook
+to emulate preemptive multitasking
+
+- Exo

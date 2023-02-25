@@ -1,4 +1,4 @@
-package amade.api;
+package amade.util;
 
 class Pair<L, R> {
     public final left: L;

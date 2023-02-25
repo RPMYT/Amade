@@ -1,6 +1,6 @@
-package amade.api.multiuser;
+package amade.api.internal.multiuser;
 
-import amade.api.multiuser.User;
+import amade.api.internal.multiuser.User;
 
 class UserManager {
     private static var current: User;

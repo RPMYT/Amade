@@ -1,11 +1,12 @@
-package amade.api.filesystem;
+package amade.api.internal.filesystem;
 
-import amade.api.Pair;
-import amade.api.filesystem.FilePermission.Scope;
-import amade.api.multiuser.UserManager;
-import amade.api.filesystem.FilePermission.Permission;
-import amade.api.filesystem.FilePermission.PermissionUtil;
-import amade.api.Error;
+import amade.api.internal.filesystem.IOMode;
+import amade.util.Pair;
+import amade.api.internal.filesystem.FilePermission.Scope;
+import amade.api.internal.multiuser.UserManager;
+import amade.api.internal.filesystem.FilePermission.Permission;
+import amade.api.internal.filesystem.FilePermission.PermissionUtil;
+import amade.util.Error;
 import haxe.extern.EitherType;
 import cc.IO;
 import cc.IO.OpenFileMode;
@@ -14,12 +15,12 @@ import cc.IO.LLFileHandle;
 class FileHandle {
     private final readHandle: LLFileHandle;
     private final writeHandle: LLFileHandle;
-    public final mode: Mode;
+    public final mode: IOMode;
     public final isBinary: Bool;
 
     public final err: Error;
 
-    public function new(path: String, mode: Mode, isBinary: Bool) {
+    public function new(path: String, mode: IOMode, isBinary: Bool) {
         this.mode = mode;
         this.isBinary = isBinary;
 
@@ -54,7 +55,7 @@ class FileHandle {
         }
 
         if (!canOpen) {
-            err = Error.EACCES;
+            err = Error.EACCES(path);
             readHandle = null;
             writeHandle = null;
             return;
@@ -112,14 +113,14 @@ class FileHandle {
     public function read(?count: Int): EitherType<Error, Pair<String, Int>> {
         var count: EitherType<String, Int> = count != null ? count : "*a";
 
-        if (this.mode != Mode.READ && this.mode != Mode.READWRITE && this.mode != Mode.READAPPEND) {
-            return Error.EINVAL;
+        if (this.mode != IOMode.READ && this.mode != IOMode.READWRITE && this.mode != IOMode.READAPPEND) {
+            return Error.EINVAL("Tried to read from a write-only file");
         }
 
         var read = readHandle.read(count);
 
         if (read == "" || read == null) {
-            return Error.ENODATA;
+            return Error.ENODATA("Reached EOF");
         }
 
         if (writeHandle != null) {
@@ -130,8 +131,8 @@ class FileHandle {
     }
 
     public function write(data: String): EitherType<Error, Int> {
-        if (this.mode != Mode.WRITE && this.mode != Mode.READWRITE && this.mode != Mode.READAPPEND) {
-            return Error.EINVAL;
+        if (this.mode != IOMode.WRITE && this.mode != IOMode.READWRITE && this.mode != IOMode.READAPPEND) {
+            return Error.EINVAL("Tried to write to a read-only file");
         }
 
         writeHandle.write(data);
@@ -142,13 +143,4 @@ class FileHandle {
 
         return writeHandle.seek();
     }
-}
-
-enum Mode {
-    READ;
-    WRITE;
-    APPEND;
-
-    READWRITE;
-    READAPPEND;
 }

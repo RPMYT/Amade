@@ -1,5 +1,6 @@
 -cp amade
 -D analyzer-optimize
 -L cctweaked
+-L compiletime
 -main amade.system.boot.AmadeSystemFSLV
 -lua Amade.lua
